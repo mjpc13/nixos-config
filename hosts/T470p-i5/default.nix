@@ -26,26 +26,24 @@
     "ext4"
     "btrfs"
     "xfs"
-    #"zfs"
     "ntfs"
     "fat"
     "vfat"
     "exfat"
-    # "cifs" # mount windows share
   ];
 
   # Bootloader.
   boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
-    };
+    #efi = {
+      #canTouchEfiVariables = true;
+      #efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+    #};
     systemd-boot.enable = true;
   };
 
   networking = {
     hostName = "mjpc13-t470p";
-    wireless.enable = true; # Enables wireless support via wpa_supplicant.
+    #wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
     # Configure network proxy if necessary
     # proxy.default = "http://user:password@proxy:port/";

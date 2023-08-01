@@ -1,4 +1,4 @@
-{ ... }:
+{lib, ... }:
 
 {
   imports = [
@@ -18,8 +18,8 @@
       name = "mjpc13";
     in
     {
-      username = mjpc13;
-      homeDirectory = "/home/${mjpc13}";
+      username = "${name}";
+      homeDirectory = lib.mkForce "/home/${name}";
 
       # This value determines the Home Manager release that your
       # configuration is compatible with. This helps avoid breakage

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./wayland-apps.nix
+    #./wayland-apps.nix
   ];
 
   # Only available on home-manager's master branch(2023/7/25)
@@ -19,15 +19,15 @@
     source = ./gtk-3.0;
     recursive = true;
   };
-  home.file.".gtkrc-2.0".source = ./gtkrc-2.0;
-  home.file.".config/hypr/wallpapers/wallpaper.png".source = ../wallpapers/wallpaper.png;
+  home.file.".gtk-2.0".source = ./gtk-2.0;
+  home.file.".config/hypr/wallpapers/wallpaper.png".source = ../wallpapers/nixos1.png;
 
 
   # music player - mpd
-  home.file.".config/mpd" = {
-    source = ./mpd;
-    recursive = true;
-  };
+  #home.file.".config/mpd" = {
+    #source = ./mpd;
+    #recursive = true;
+  #};
 
   # allow fontconfig to discover fonts and configurations installed through home.packages
   fonts.fontconfig.enable = true;

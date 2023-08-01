@@ -70,7 +70,7 @@
     # TODO replace by `flameshot gui --raw | wl-copy`
 
     wofi # A rofi inspired launcher for wlroots compositors such as sway/hyprland
-    dusnt # the notification daemon, the same as dunst
+    dunst # the notification daemon, the same as dunst
 
     yad # a fork of zenity, for creating dialogs
 

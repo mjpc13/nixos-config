@@ -14,7 +14,7 @@
   nix.gc = {
     automatic = lib.mkDefault true;
     dates = lib.mkDefault "weekly";
-    options = lib.mkDefault "--delete-older-than 1w";
+    options = lib.mkDefault "--delete-older-than 2w";
   };
 
   # Manual optimise storage: nix-store --optimise
@@ -60,6 +60,15 @@
     git # used by nix flakes
     # git-lfs # used by huggingface models
 
+
+    # python, some times I may need to use python with root permission.
+   (python310.withPackages (ps: with ps; [
+      ipython
+      pandas
+      pyyaml
+      numpy
+    ]))
+
     # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!
     (
       let base = pkgs.appimageTools.defaultFhsEnvArgs; in
@@ -82,9 +91,9 @@
   };
 
   # for power management
-  services.power-profiles-daemon = {
-    enable = true;
-  };
+  #services.power-profiles-daemon = {
+    #enable = true;
+  #};
   services.upower.enable = true;
 
 
@@ -97,10 +106,10 @@
   # all fonts are linked to /nix/var/nix/profiles/system/sw/share/X11/fonts
   fonts = {
     # use fonts specified by user rather than default ones
-    enableDefaultFonts = false;
+    enableDefaultPackages = false;
     fontDir.enable = true;
 
-    fonts = with pkgs; [
+    packages = with pkgs; [
       # icon fonts
       material-design-icons
       font-awesome
@@ -151,15 +160,15 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    # python, some times I may need to use python with root permission.
-    (python310.withPackages (ps: with ps; [
-      ipython
-      pandas
-      pyyaml
-      numpy
-    ]))
-  ];
+  #environment.systemPackages = with pkgs; [
+    ## python, some times I may need to use python with root permission.
+    #(python310.withPackages (ps: with ps; [
+      #ipython
+      #pandas
+      #pyyaml
+      #numpy
+    #]))
+  #];
 
   # PipeWire is a new low-level multimedia framework.
   # It aims to offer capture and playback for both audio and video with minimal latency.
@@ -239,7 +248,6 @@
       # xdg-desktop-portal-kde  # for kde
     ];
   };
-
   # add user's shell into /etc/shells
   environment.shells = with pkgs; [
     bash
@@ -248,5 +256,4 @@
   ];
   # set user's default shell system-wide
   users.defaultUserShell = pkgs.bash;
-
 }
