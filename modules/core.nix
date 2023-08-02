@@ -100,7 +100,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-
+  services.dbus.enable = true;
 
 
   # all fonts are linked to /nix/var/nix/profiles/system/sw/share/X11/fonts
@@ -220,7 +220,7 @@
   # };
 
   services = {
-    dbus.packages = [ pkgs.gcr ];
+    #dbus.packages = [ pkgs.gcr ];
 
     # geoclue2.enable = true;
 

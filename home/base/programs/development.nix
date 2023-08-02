@@ -8,7 +8,10 @@
   #############################################################
 
   home.packages = with pkgs; [
-    pkgs-unstable.devbox
+    #pkgs-unstable.devbox
+
+    #Web stuff
+    firefox
 
     docker-compose
     lazydocker
@@ -17,6 +20,7 @@
     zip
     unzip
     kitty
+    fzf
 
     # DO NOT install build tools for C/C++, set it per project by devShell instead
     gnumake # used by this repo, to simplify the deployment

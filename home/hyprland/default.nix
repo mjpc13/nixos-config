@@ -38,19 +38,19 @@
     "MOZ_WEBRENDER" = "1";
 
     # for hyprland with nvidia gpu, ref https://wiki.hyprland.org/Nvidia/
-    "LIBVA_DRIVER_NAME" = "nvidia";
+    #"LIBVA_DRIVER_NAME" = "nvidia";
     "XDG_SESSION_TYPE" = "wayland";
-    "GBM_BACKEND" = "nvidia-drm";
-    "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
+    #"GBM_BACKEND" = "nvidia-drm";
+    #"__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
     "WLR_NO_HARDWARE_CURSORS" = "1";
     "WLR_EGL_NO_MODIFIRES" = "1";
   };
 
   # this is for xwayland
   # set dpi for 4k monitor
-  xresources.properties = {
-    "Xft.dpi" = 162;
-  };
+  #xresources.properties = {
+    #"Xft.dpi" = 162;
+  #};
 
   # set Xcursor.theme & Xcursor.size in ~/.Xresources automatically
   home.pointerCursor = {

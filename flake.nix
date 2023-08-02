@@ -127,8 +127,8 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            home-manager.extraSpecialArgs = x64_specialArgs;
-            home-manager.users.mjpc13 = import ./home/linux/desktop-hyprland.nix;
+            #home-manager.extraSpecialArgs = x64_specialArgs;
+            home-manager.users.mjpc13 = import ./home/t470p-hyprland.nix;
           }
         ];
       };
