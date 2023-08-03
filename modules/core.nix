@@ -59,6 +59,7 @@
     aria2
     git # used by nix flakes
     # git-lfs # used by huggingface models
+    nvd #compare different versions of NixOS
 
 
     # python, some times I may need to use python with root permission.

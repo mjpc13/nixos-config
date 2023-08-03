@@ -31,6 +31,7 @@
       ipython
       pandas
       numpy
+      pygobject3
     ]))
 
     # gcc
@@ -52,5 +53,25 @@
       enableZshIntegration = true;
       enableBashIntegration = true;
     };
+
+    zsh = {
+      enable = true;
+      enableCompletion = true; # enabled in oh-my-zsh
+      shellAliases = {
+        edit = "fzf | xargs -I {} kitty -e nvim " { } " ";
+      };
+
+    };
+
+    # git = {
+    #   enable = true;
+    #   package = pkgs.gitAndTools.gitFull;
+    #   userName = "Mario Cristovao";
+    #   userEmail = "mjpc13@protonmail.com";
+    #   extraConfig = {
+    #     core.editor = "nvim";
+    #   };
+    # };
+
   };
 }

@@ -26,6 +26,10 @@
     source = ./waybar;
     recursive = true;
   };
+  home.file.".config/wofi" = {
+    source = ./wofi;
+    recursive = true;
+  };
 
   # music player - mpd
   #home.file.".config/mpd" = {
