@@ -21,6 +21,7 @@
     unzip
     kitty
     fzf
+    ripgrep
 
     # DO NOT install build tools for C/C++, set it per project by devShell instead
     gnumake # used by this repo, to simplify the deployment

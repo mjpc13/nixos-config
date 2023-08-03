@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    #./wayland-apps.nix
+    # ./programs
   ];
 
   # Only available on home-manager's master branch(2023/7/25)
@@ -22,11 +22,15 @@
   home.file.".gtk-2.0".source = ./gtk-2.0;
   home.file.".config/hypr/wallpapers/wallpaper.png".source = ../wallpapers/nixos1.png;
 
+  home.file.".config/waybar" = {
+    source = ./waybar;
+    recursive = true;
+  };
 
   # music player - mpd
   #home.file.".config/mpd" = {
-    #source = ./mpd;
-    #recursive = true;
+  #source = ./mpd;
+  #recursive = true;
   #};
 
   # allow fontconfig to discover fonts and configurations installed through home.packages
@@ -49,7 +53,7 @@
   # this is for xwayland
   # set dpi for 4k monitor
   #xresources.properties = {
-    #"Xft.dpi" = 162;
+  #"Xft.dpi" = 162;
   #};
 
   # set Xcursor.theme & Xcursor.size in ~/.Xresources automatically

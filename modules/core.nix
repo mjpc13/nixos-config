@@ -62,11 +62,12 @@
 
 
     # python, some times I may need to use python with root permission.
-   (python310.withPackages (ps: with ps; [
+    (python310.withPackages (ps: with ps; [
       ipython
       pandas
       pyyaml
       numpy
+      requests
     ]))
 
     # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!
@@ -92,7 +93,7 @@
 
   # for power management
   #services.power-profiles-daemon = {
-    #enable = true;
+  #enable = true;
   #};
   services.upower.enable = true;
 
@@ -161,13 +162,13 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   #environment.systemPackages = with pkgs; [
-    ## python, some times I may need to use python with root permission.
-    #(python310.withPackages (ps: with ps; [
-      #ipython
-      #pandas
-      #pyyaml
-      #numpy
-    #]))
+  ## python, some times I may need to use python with root permission.
+  #(python310.withPackages (ps: with ps; [
+  #ipython
+  #pandas
+  #pyyaml
+  #numpy
+  #]))
   #];
 
   # PipeWire is a new low-level multimedia framework.

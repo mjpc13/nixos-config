@@ -35,8 +35,8 @@
   # Bootloader.
   boot.loader = {
     #efi = {
-      #canTouchEfiVariables = true;
-      #efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+    #canTouchEfiVariables = true;
+    #efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
     #};
     systemd-boot.enable = true;
   };
@@ -51,7 +51,7 @@
 
     networkmanager.enable = true;
 
-    enableIPv6 = false; # disable ipv6
+    enableIPv6 = true; # disable ipv6
     # defaultGateway = "";
     nameservers = [ ];
   };
