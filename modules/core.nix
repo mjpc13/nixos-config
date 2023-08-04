@@ -60,6 +60,7 @@
     git # used by nix flakes
     # git-lfs # used by huggingface models
     nvd #compare different versions of NixOS
+    fzf
 
 
     # python, some times I may need to use python with root permission.
@@ -82,6 +83,10 @@
         extraOutputsToInstall = [ "dev" ];
       })
     )
+
+    # Use custom scripts
+    (import ./scripts/open-file.nix { inherit pkgs; })
+    (import ./scripts/backup.nix { inherit pkgs; })
   ];
 
 
@@ -232,6 +237,7 @@
     ];
   };
 
+  programs.command-not-found.enable = false;
   # android development tools, this will install adb/fastboot and other android tools and udev rules
   # programs.adb.enable = true;
 
