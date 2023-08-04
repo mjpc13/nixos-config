@@ -1,13 +1,9 @@
 { pkgs, ... }:
 {
   imports = [
-    # ./programs
+    # ./scripts #Import custom scripts
   ];
 
-  # Only available on home-manager's master branch(2023/7/25)
-  # wayland.windowManager.hyprland = {
-  #   enable = true;
-  # };
 
   # hyprland configs, based on https://github.com/notwidow/hyprland
   home.file.".config/hypr" = {
@@ -31,12 +27,6 @@
     recursive = true;
   };
 
-  # music player - mpd
-  #home.file.".config/mpd" = {
-  #source = ./mpd;
-  #recursive = true;
-  #};
-
   # allow fontconfig to discover fonts and configurations installed through home.packages
   fonts.fontconfig.enable = true;
 
@@ -53,12 +43,6 @@
     "WLR_NO_HARDWARE_CURSORS" = "1";
     "WLR_EGL_NO_MODIFIRES" = "1";
   };
-
-  # this is for xwayland
-  # set dpi for 4k monitor
-  #xresources.properties = {
-  #"Xft.dpi" = 162;
-  #};
 
   # set Xcursor.theme & Xcursor.size in ~/.Xresources automatically
   home.pointerCursor = {

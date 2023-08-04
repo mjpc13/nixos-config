@@ -6,7 +6,6 @@
   #  Basic settings for development environment
   # 
   #############################################################
-
   home.packages = with pkgs; [
     #pkgs-unstable.devbox
 
@@ -22,9 +21,6 @@
     kitty
     fzf
     ripgrep
-
-    # DO NOT install build tools for C/C++, set it per project by devShell instead
-    gnumake # used by this repo, to simplify the deployment
 
     # Languages
     (python311.withPackages (ps: with ps; [
@@ -46,6 +42,8 @@
   ];
 
   programs = {
+
+    command-not-found.enable = false;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -56,22 +54,40 @@
 
     zsh = {
       enable = true;
-      enableCompletion = true; # enabled in oh-my-zsh
-      shellAliases = {
-        edit = "fzf | xargs -I {} kitty -e nvim " { } " ";
-      };
+      enableAutosuggestions = true;
+      enableCompletion = true;
+      # shellAliases = {
+      #   edit = "fzf | xargs -I {} kitty -e nvim " { } " ";
+      # };
 
     };
 
-    # git = {
-    #   enable = true;
-    #   package = pkgs.gitAndTools.gitFull;
-    #   userName = "Mario Cristovao";
-    #   userEmail = "mjpc13@protonmail.com";
-    #   extraConfig = {
-    #     core.editor = "nvim";
-    #   };
-    # };
+    git = {
+      enable = true;
+      package = pkgs.gitAndTools.gitFull;
+      userName = "mjpc13";
+      userEmail = "mjpc13@protonmail.com";
+      extraConfig = {
+        core.editor = "nvim";
+      };
+    };
+
+    kitty = {
+      enable = true;
+      theme = "Catppuccin-Macchiato";
+      font = {
+        name = "FiraCode Font";
+        # use different font size on macOS
+        size = 14;
+      };
+
+      settings = {
+        background_opacity = "0.95";
+        scrollback_lines = 10000;
+        enable_audio_bell = false;
+      };
+
+    };
 
   };
 }
