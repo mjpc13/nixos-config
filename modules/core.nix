@@ -28,6 +28,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = lib.mkDefault true;
 
+  nixpkgs.config.permittedInsecurePackages = [ "qtwebkit-5.212.0-alpha4" ];
   # Set your time zone.
   time.timeZone = "Europe/Lisbon";
 
