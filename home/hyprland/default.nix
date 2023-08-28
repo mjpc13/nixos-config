@@ -26,6 +26,11 @@
     source = ./wofi;
     recursive = true;
   };
+  home.file.".config/nvim" = {
+    source = ../base/programs/nvim;
+    # copy the scripts directory recursively
+    recursive = true;
+  };
 
   # allow fontconfig to discover fonts and configurations installed through home.packages
   fonts.fontconfig.enable = true;
