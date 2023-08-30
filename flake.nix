@@ -147,7 +147,29 @@
           }
         ];
       };
+      
+      "mjpc13-desktop" = nixpkgs.lib.nixosSystem {
 
+        system = "x86_64-linux";
+
+        modules = [
+
+          ./hosts/desktop3070-3700x
+          ./modules/gnome.nix
+
+          inputs.nix-index-database.nixosModules.nix-index
+          inputs.nix-ros-overlay.nixosModules.default
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            #home-manager.extraSpecialArgs = x64_specialArgs;
+            home-manager.users.mjpc13 = import ./home/desktop-gnome.nix;
+          }
+        ];
+      };
 
     };
   };

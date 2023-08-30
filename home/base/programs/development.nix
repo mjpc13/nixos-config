@@ -30,7 +30,7 @@
       pygobject3
     ]))
 
-    # gcc
+    gcc
     gdb
     rustup
     go

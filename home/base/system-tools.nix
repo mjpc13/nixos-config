@@ -6,6 +6,7 @@
     btop # replacement of htop/nmon
     iotop
     iftop
+    ranger
 
     # misc
     libnotify
