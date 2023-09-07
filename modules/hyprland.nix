@@ -65,10 +65,10 @@
 
 
   # thunar file manager(part of xfce) related options
-  programs.thunar.plugins = with pkgs.xfce; [
-    thunar-archive-plugin
-    thunar-volman
-  ];
+  # programs.thunar.plugins = with pkgs.xfce; [
+  #   thunar-archive-plugin
+  #   thunar-volman
+  # ];
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
 
@@ -76,7 +76,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     waybar # the status bar
-    swww # the wallpaper
+    # swww # the wallpaper
+    hyprpaper
     swayidle # the idle timeout
     swaylock # locking the screen
     wlogout # logout menu
@@ -100,6 +101,7 @@
     ncmpcpp # a mpd client with a UI
     networkmanagerapplet # provide GUI app: nm-connection-editor 
 
-    xfce.thunar # xfce4's file manager
+    # xfce.thunar # xfce4's file manager
+    gnome.nautilus
   ];
 }

@@ -16,7 +16,7 @@
     recursive = true;
   };
   home.file.".gtk-2.0".source = ./gtk-2.0;
-  home.file.".config/hypr/wallpapers/wallpaper.png".source = ../wallpapers/nixos1.png;
+  home.file.".config/wallpapers".source = ../wallpapers;
 
   home.file.".config/waybar" = {
     source = ./waybar;
