@@ -2,13 +2,8 @@
 
 {
   imports = [
-    # ../base/desktop
-
     ./base
-    # ./fcitx5
-    # ./desktop
-
-    ./hyprland
+    ./gnome
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -31,6 +26,14 @@
       # changes in each release.
       stateVersion = "22.11";
     };
+
+  #Wallpapers
+  dconf.settings."org/gnome/desktop/background".picture-uri = lib.mkForce "file:///home/mjpc13/.config/wallpapers/thinkpad.jpg";
+  dconf.settings."org/gnome/desktop/background".picture-uri-dark = lib.mkForce "file:///home/mjpc13/.config/wallpapers/thinkpad.jpg";
+
+  # screensaver
+  dconf.settings."org/gnome/desktop/screensaver".picture-uri = lib.mkForce "file:///home/mjpc13/.config/wallpapers/thinkpad.jpg";
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

@@ -132,7 +132,8 @@
         modules = [
 
           ./hosts/T470p-i5
-          ./modules/hyprland.nix
+          ./modules/gnome.nix
+          # ./modules/hyprland.nix
 
           inputs.nix-index-database.nixosModules.nix-index
           inputs.nix-ros-overlay.nixosModules.default
@@ -142,12 +143,12 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            #home-manager.extraSpecialArgs = x64_specialArgs;
-            home-manager.users.mjpc13 = import ./home/t470p-hyprland.nix;
+            # home-manager.users.mjpc13 = import ./home/t470p-hyprland.nix;
+            home-manager.users.mjpc13 = import ./home/thinkpad-gnome.nix;
           }
         ];
       };
-      
+
       "mjpc13-desktop" = nixpkgs.lib.nixosSystem {
 
         system = "x86_64-linux";
@@ -165,7 +166,6 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            #home-manager.extraSpecialArgs = x64_specialArgs;
             home-manager.users.mjpc13 = import ./home/desktop-gnome.nix;
           }
         ];

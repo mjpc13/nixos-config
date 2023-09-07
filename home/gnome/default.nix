@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  # ...
+  # GTK Options
   gtk = {
     enable = true;
 
@@ -34,8 +34,16 @@
   };
 
   home.sessionVariables.GTK_THEME = "WhiteSur";
-  # ...
 
+  # Config options
+  home.file.".config/wallpapers".source = ../wallpapers;
+
+  home.file.".config/nvim" = {
+    source = ../base/programs/nvim;
+    recursive = true;
+  };
+
+  # DCONF Settings
   dconf.settings = {
     # To know what options you have, Run:
     # $ dconf watch /
@@ -58,10 +66,9 @@
 
       favorite-apps = [
         "firefox.desktop"
-    #    "code.desktop"
-    #    "org.gnome.Terminal.desktop"
-    #    "spotify.desktop"
-    #    "virt-manager.desktop"
+        "kitty.desktop"
+        "spotify.desktop"
+        "slack.desktop"
         "org.gnome.Nautilus.desktop"
       ];
     };
@@ -76,8 +83,8 @@
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///nix/store/y3crcz5chwxxf8na6lbsb36c92929mw4-simple-blue-2016-02-19/share/backgrounds/nixos/nix-wallpaper-simple-blue.png";
-      picture-uri-dark = "file:///nix/store/w55is6y280mc7p4h08k4aji60pys6gn0-simple-dark-gray-2016-02-19/share/backgrounds/nixos/nix-wallpaper-simple-dark-gray.png";
+      picture-uri = "file:///home/mjpc13/.config/wallpapers/nix-nineish-light.png";
+      picture-uri-dark = "file:///home/mjpc13/.config/wallpapers/nix-nineish-dark.png";
       primary-color = "#3a4ba0";
       secondary-color = "#2f302f";
     };
@@ -85,7 +92,7 @@
     "org/gnome/desktop/screensaver" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///nix/store/y3crcz5chwxxf8na6lbsb36c92929mw4-simple-blue-2016-02-19/share/backgrounds/nixos/nix-wallpaper-simple-blue.png";
+      picture-uri = "file:///home/mjpc13/.config/wallpapers/nix-dracula.png";
       primary-color = "#3a4ba0";
       secondary-color = "#2f302f";
     };
@@ -100,7 +107,6 @@
     gnomeExtensions.dash-to-panel
     gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.space-bar
-
 
     neovide
   ];
