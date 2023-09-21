@@ -29,5 +29,7 @@
       enable_audio_bell = false;
     };
 
+    # enableZshShellInteration = true;
+
   };
 }
