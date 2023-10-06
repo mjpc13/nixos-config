@@ -15,6 +15,7 @@
     noisetorch #improve audio on calls
     gimp
     okular #PDF viewer
+    libreoffice-qt #Office Suite
     vlc #video
 
     obsidian #Note taking
