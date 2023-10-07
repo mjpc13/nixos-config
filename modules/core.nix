@@ -250,4 +250,5 @@
   ];
   # set user's default shell system-wide
   users.defaultUserShell = pkgs.bash;
+  # programs.zsh.enable = true;
 }

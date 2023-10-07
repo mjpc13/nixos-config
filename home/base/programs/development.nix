@@ -56,13 +56,17 @@
     };
 
     zsh = {
-      enable = true;
-      enableAutosuggestions = true;
-      enableCompletion = true;
-      # shellAliases = {
-      #   edit = "fzf | xargs -I {} kitty -e nvim " { } " ";
+      enable = false;
+      # enableAutosuggestions = true;
+      # enableCompletion = true;
+      shellAliases = {
+        update = "sudo nixos-rebuild --switch /home/mjpc13/Documents/nixos-config/";
+      };
+      # oh-my-zsh = {
+      #   enable = true;
+      #   plugins = [ "thefuck" ];
+      #   theme = "robbyrussel";
       # };
-
     };
 
     git = {
