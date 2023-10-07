@@ -5,6 +5,8 @@
     # ../base/desktop
 
     ./base
+    ./extra/game.nix
+    ./extra/artistic.nix
     # ./fcitx5
     # ./desktop
 

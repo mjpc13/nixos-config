@@ -116,7 +116,11 @@
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # opengl.driSupport32Bit = true;
   };
+
+  # hardware.opengl.driSupport32Bit = true;
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

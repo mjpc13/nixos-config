@@ -11,6 +11,7 @@
 
     #Web stuff
     firefox
+    ungoogled-chromium
 
     docker-compose
     lazydocker
@@ -37,6 +38,8 @@
     nodejs
     julia
     #latex
+
+    zotero
     texlive.combined.scheme-full
 
   ];
