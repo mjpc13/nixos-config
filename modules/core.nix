@@ -63,6 +63,8 @@
     nvd #compare different versions of NixOS
     fzf
 
+    tailscale
+
 
     # python, some times I may need to use python with root permission.
     (python310.withPackages (ps: with ps; [
@@ -237,6 +239,8 @@
       # android-udev-rules
     ];
   };
+
+  services.tailscale.enable = true;
 
   programs.command-not-found.enable = false;
   # android development tools, this will install adb/fastboot and other android tools and udev rules
