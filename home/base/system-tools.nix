@@ -7,6 +7,7 @@
     iotop
     iftop
     ranger
+    ncdu
 
     # misc
     libnotify
@@ -30,10 +31,6 @@
   # auto mount usb drives
   services = {
     udiskie.enable = true;
-  };
-
-  services = {
-    # syncthing.enable = true;
   };
 
 }

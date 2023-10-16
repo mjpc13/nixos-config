@@ -240,7 +240,16 @@
     ];
   };
 
-  services.tailscale.enable = true;
+  #Tailscale and syncthing
+  services = {
+    tailscale.enable = true;
+    syncthing = {
+      enable = true;
+      user = "mjpc13";
+      dataDir = "/home/mjpc13/Sync"; # Default folder for new synced folders
+      configDir = "/home/mjpc13/.config/syncthing"; # Folder for Syncthing's settings and keys
+    };
+  };
 
   programs.command-not-found.enable = false;
   # android development tools, this will install adb/fastboot and other android tools and udev rules
