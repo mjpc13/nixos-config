@@ -79,6 +79,14 @@
     enableIPv6 = true;
     # defaultGateway = "";
    # nameservers = [];
+    # interfaces = {
+    #   enp42s0 = {
+    #     useDHCP = true;
+    #     wakeOnLan = {
+    #         enable = true;
+    #     };
+    #   };
+    # };
   };
 
 
