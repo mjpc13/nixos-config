@@ -10,6 +10,7 @@
 
     blender
     davinci-resolve
+    cura
     
     aseprite
   ];

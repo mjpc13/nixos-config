@@ -22,6 +22,7 @@
     kitty
     fzf
     ripgrep
+    tldr
 
     # Languages
     (python311.withPackages (ps: with ps; [
