@@ -251,6 +251,8 @@
     };
   };
 
+  programs.noisetorch.enable = true;
+
   programs.command-not-found.enable = false;
   # android development tools, this will install adb/fastboot and other android tools and udev rules
   # programs.adb.enable = true;

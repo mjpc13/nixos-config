@@ -17,7 +17,8 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.yaml" },
-  -- { import = "astrocommunity.markdown-and-latex.glow" },
+  { import = "astrocommunity.markdown-and-latex.vimtex" },
+  { import = "astrocommunity.remote-development.distant-nvim" },
   { import = "astrocommunity.motion.leap-nvim" },
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
 }
