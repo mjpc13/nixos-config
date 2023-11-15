@@ -27,5 +27,16 @@ return {
     "ggandor/leap.nvim",
     opts = {},
     event = "User AstroFile",
-  }
+  },
+  {
+    "David-Kunz/gen.nvim",
+    lazy = false,
+    config = function()
+        vim.keymap.set('v', '<leader>gn', ':Gen<CR>')
+        vim.keymap.set('n', '<leader>gn', ':Gen<CR>')
+        require('gen').model = 'mistral'
+        -- require('gen').container = 'ollama'
+    end
+ },
+
 }
