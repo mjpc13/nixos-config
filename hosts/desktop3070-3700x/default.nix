@@ -57,13 +57,13 @@
 	canTouchEfiVariables = true;
     #efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
     };
-    systemd-boot.enable = true;
-   # grub = {
-      # enable = true;
-      # device = "/dev/nvme0n1";
-      # useOSProber = true;
-      # efiSupport = true;
-   # };
+    #systemd-boot.enable = true;
+    grub = {
+       enable = true;
+       device = "/dev/nvme0n1";
+       useOSProber = true;
+       efiSupport = true;
+    };
   };
 
   networking = {
