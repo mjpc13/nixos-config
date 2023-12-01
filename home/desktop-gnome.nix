@@ -35,8 +35,8 @@
     };
   
   #Wallpapers
-  # dconf.settings."org/gnome/desktop/background".picture-uri = lib.mkForce "file:///home/mjpc13/.config/wallpapers/nix-dracula.png";
-  # dconf.settings."org/gnome/desktop/background".picture-uri-dark = lib.mkForce "file:///home/mjpc13/.config/wallpapers/nix-dracula.png";
+  dconf.settings."org/gnome/desktop/background".picture-uri = lib.mkForce "file:///home/mjpc13/.config/wallpapers/itsv.jpg";
+  dconf.settings."org/gnome/desktop/background".picture-uri-dark = lib.mkForce "file:///home/mjpc13/.config/wallpapers/itsv.jpg";
 
   # screensaver
   # dconf.settings."org/gnome/desktop/screensaver".picture-uri = lib.mkForce "file:///home/mjpc13/.config/wallpapers/nix-dracula.png";
