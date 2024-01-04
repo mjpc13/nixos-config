@@ -42,7 +42,9 @@
       url = "github:lopsided98/nix-ros-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    
+    #Necessary for Surface Pro
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   # `outputs` are all the build result of the flake.
@@ -55,7 +57,7 @@
   # 
   # The `@` syntax here is used to alias the attribute set of the
   # inputs's parameter, making it convenient to use inside the function.
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs: {
     nixosConfigurations = {
       # By default, NixOS will try to refer the nixosConfiguration with
       # its hostname, so the system named `nixos-test` will use this one.
@@ -170,6 +172,26 @@
           }
         ];
       };
+
+      "mjpc13-surface" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+
+          modules = [
+
+            inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel
+
+            ./hosts/surface-pro.nix
+            ./modules/gnome.nix
+            ./modules/user-group.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+
+              home-manager.users.mjpc13 = import ./home/surface-pro.nix;
+            } 
+          ];
+        }; 
 
     };
   };
