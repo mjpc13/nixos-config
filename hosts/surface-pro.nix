@@ -52,7 +52,26 @@
     LC_TELEPHONE = "pt_PT.UTF-8";
     LC_TIME = "pt_PT.UTF-8";
   };
-  
+
+  #Custom overlay
+  nixpkgs.overlays = [ (final: prev: {
+    ipts-sleep = final.writeShellApplication{
+      name = "ipts-sleep";
+      text = ''
+        case $1 in 
+        pre)
+	  systemctl stop iptsd
+	  modprobe -r ipts
+	  ;;
+        post)
+   	  modprobe ipts
+	  sytemctl start iptsd
+	  ;;
+        esac
+      '';
+      };
+  })];
+
   environment.systemPackages = with pkgs; [
     rnote
     firefox
@@ -60,11 +79,33 @@
     git
     bat
     vscodium
+    ipts-sleep
   ];
   nixpkgs.config.allowUnfree = true;
 
-   # Fix the touch not working after suspend
- 
+  # Create systemd service to fix the touch not working after suspend
+  systemd.services.ipts-sleep= {
+      # this service is "wanted by" (see systemd man pages, or other tutorials) the system 
+      # level that allows multiple users to login and interact with the machine non-graphically 
+      # (see the Red Hat tutorial or Arch Linux Wiki for more information on what each target means) 
+      # this is the "node" in the systemd dependency graph that will run the service
+      wantedBy = [ "sleep.target" ];
+      # systemd service unit declarations involve specifying dependencies and order of execution
+      # of systemd nodes; here we are saying that we want our service to start after the network has 
+      # set up (as our IRC client needs to relay over the network)
+      before = [ "sleep.target" ];
+      description = "IPTS sleep hook.";
+      #stopWhenUnneeded="yes";
+      serviceConfig = {
+        # see systemd man pages for more information on the various options for "Type"
+        Type = "oneshot";
+        RemainAfterExit = "yes";
+        # the command to execute when the service starts up 
+        ExecStart=''${pkgs.ipts-sleep}/bin/ipts-sleep pre'';
+        # and the command to execute         
+        ExecStop=''${pkgs.ipts-sleep}/bin/ipts-sleep post'';
+      };
+   };
+
   system.stateVersion = "23.05";
 }
-
