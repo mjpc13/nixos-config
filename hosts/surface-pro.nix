@@ -76,6 +76,7 @@
     rnote
     firefox
     vim
+    neovim
     git
     bat
     vscodium
