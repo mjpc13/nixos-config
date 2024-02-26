@@ -56,6 +56,8 @@
     nameservers = [ ];
   };
 
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   # virtualisation.docker.storageDriver = "btrfs";
 
   # This value determines the NixOS release from which the default
