@@ -57,21 +57,36 @@
       #For gnome extensions
       enabled-extensions = [
 
-        # "user-theme@gnome-shell-extensions.gcampax.github.com"
-        "Vitals@CoreCoding.com"
-        "dash-to-panel@jderose9.github.com"
-        "sound-output-device-chooser@kgshank.net"
+        "caffeine@patapon.info"
+        "arcmenu@arcmenu.com"
+        "mediacontrols@cliffniff.github.com"
         "space-bar@luchrioh"
+        "tactile@lundal.io"
+        "just-perfection-desktop@just-perfection"
+        "blur-my-shell@aunetx"
       ];
+
 
       favorite-apps = [
         "firefox.desktop"
         "kitty.desktop"
-        "spotify.desktop"
         "slack.desktop"
         "org.gnome.Nautilus.desktop"
       ];
     };
+
+    # "/org/gnome/shell/extensions/arcmenu".arc-menu-icon = "63";
+    # "/org/gnome/shell/extensions/mediacontrols/show-control-icons-seek-forward" = {
+    #   label-width = 0;
+    #   show-control-icons-seek-forward = false;
+    #   show-control-icons-seek-back = false;
+    #   show-player-icon = false;
+    # };
+    # "/org/gnome/shell/extensions/just-perfection" = {
+    #   keyboard-layout = false;
+    #   clock-menu-position = 1;
+    # };
+
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
@@ -103,10 +118,23 @@
   home.packages = with pkgs; [
     # ...
     # gnomeExtensions.user-themes
-    gnomeExtensions.vitals
+    # gnomeExtensions.vitals
     gnomeExtensions.dash-to-panel
     gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.space-bar
+    gnomeExtensions.tactile
+
+    # gnomeExtensions.multimonitors
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.media-controls
+    gnomeExtensions.caffeine
+
+    # gnomeExtensions.easyscreencast
+    gnomeExtensions.arcmenu
+    gnomeExtensions.just-perfection
+    # gnomeExtensions.floating-dock
+
+
 
     neovide
   ];
