@@ -20,10 +20,21 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-
+    ["<leader>ac"] = {
+      ":Gen Chat<cr>",
+      desc = "Ask a question",
+    },
   },
-  t = {
+  v = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
+    ["<leader>as"] = {
+      ":'<,'>Gen Enhance_Grammar_Spelling<cr>",
+      desc = "Fix Spelling",
+    },
+    ["<leader>ae"] = {
+      ":'<,'>Gen Enhance_Wording<cr>",
+      desc = "Enhance Wording",
+    },
   },
 }
