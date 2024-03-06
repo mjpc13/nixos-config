@@ -31,7 +31,7 @@
 
 
   services.xserver.enable = true;
-  
+
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   environment.gnome.excludePackages = (with pkgs; [
@@ -40,7 +40,7 @@
   ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
     gnome-music
-    gedit # text editor
+    # gedit # text editor
     epiphany # web browser
     geary # email reader
     gnome-characters
