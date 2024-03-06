@@ -11,8 +11,8 @@
     blender
     davinci-resolve
     cura
-    
-    aseprite
+
+#aseprite
   ];
 # programs.steam = {
 #   enable = true;
