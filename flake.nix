@@ -42,9 +42,16 @@
       url = "github:lopsided98/nix-ros-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     #Necessary for Surface Pro
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware = {
+      type = "github";
+      owner = "NixOS";
+      repo = "nixos-hardware";
+      rev = "1bace8cedd4fa4ea9efb5ea17a06b9d92af86206";
+      narHash = "sha256-2oJ6XMp1sR+uZstsWDVxzs0E8HULGXBMdx8cLJsj9+8=";
+    };
   };
 
   # `outputs` are all the build result of the flake.
@@ -174,24 +181,24 @@
       };
 
       "mjpc13-surface" = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+        system = "x86_64-linux";
 
-          modules = [
+        modules = [
 
-            inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel
+          inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel
 
-            ./hosts/surface-pro.nix
-            ./modules/gnome.nix
-            ./modules/user-group.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
+          ./hosts/surface-pro.nix
+          ./modules/gnome.nix
+          ./modules/user-group.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
 
-              home-manager.users.mjpc13 = import ./home/surface-pro.nix;
-            } 
-          ];
-        }; 
+            home-manager.users.mjpc13 = import ./home/surface-pro.nix;
+          }
+        ];
+      };
 
     };
   };

@@ -88,9 +88,10 @@
         "type": "github"
       },
       "original": {
+        "narHash": "sha256-2oJ6XMp1sR+uZstsWDVxzs0E8HULGXBMdx8cLJsj9+8=",
         "owner": "NixOS",
-        "ref": "master",
         "repo": "nixos-hardware",
+        "rev": "1bace8cedd4fa4ea9efb5ea17a06b9d92af86206",
         "type": "github"
       }
     },
