@@ -2,10 +2,25 @@
 
 {
 
-  options.gnome.test = lib.mkOption {
-    type = lib.types.int;
-    default = 2;
+  options.gnome = {
+    test = lib.mkOption {
+      type = lib.types.int;
+      default = 2;
+    };
+
+    wallpaper = lib.mkOption {
+      type = lib.types.str;
+      default = "file:///home/mjpc13/.config/wallpapers/itsv.jpg";
+    };
+    wallpaper-dark = lib.mkOption {
+      type = lib.types.str;
+      default = "file:///home/mjpc13/.config/wallpapers/the-great-wave.jpg.jpg";
+    };
+
   };
+
+  # config.gnome.wallpaper-dark = "file:///home/mjpc13/.config/wallpapers/itsv.jpg";
+  # config.gnome.test = 1;
   # GTK Options
   config = {
     gtk = {
@@ -17,13 +32,19 @@
       };
 
       theme = {
-        name = "WhiteSur";
-        package = pkgs.whitesur-gtk-theme;
+        name = "Catppuccin-Frappe-Standard-Pink-Dark";
+        package = pkgs.catppuccin-gtk.override {
+          accents = [ "pink" "flamingo" ];
+          size = "standard";
+          tweaks = [ "rimless" ];
+          variant = "frappe";
+        };
       };
 
       cursorTheme = {
-        name = "Numix-Cursor";
-        package = pkgs.numix-cursor-theme;
+        name = "Catppuccin-Frappe-Rosewater-Cursors";
+        # package = pkgs.numix-cursor-theme;
+        package = pkgs.catppuccin-cursors.frappeRosewater;
       };
 
       gtk3.extraConfig = {
@@ -38,11 +59,17 @@
         '';
       };
     };
-
-    home.sessionVariables.GTK_THEME = "WhiteSur";
+    xdg.configFile = {
+      "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+      "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+      "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+    };
+    # home.sessionVariables.GTK_THEME = "Catppuccin-Frappe-B";
 
     # Config options
     home.file.".config/wallpapers".source = ../wallpapers;
+
+
 
     home.file.".config/nvim" = {
       source = ../base/programs/nvim;
@@ -54,6 +81,11 @@
       # To know what options you have, Run:
       # $ dconf watch /
       # Then go to preferences and edit the different settings
+
+      "org/gnome/desktop/background" = {
+        picture-uri = config.gnome.wallpaper;
+        picture-uri-dark = config.gnome.wallpaper-dark;
+      };
 
 
       "org/gnome/shell" = {
@@ -104,8 +136,8 @@
       "org/gnome/desktop/background" = {
         color-shading-type = "solid";
         picture-options = "zoom";
-        picture-uri = "file:///home/mjpc13/.config/wallpapers/nix-nineish-light.png";
-        picture-uri-dark = "file:///home/mjpc13/.config/wallpapers/nix-nineish-dark.png";
+        # picture-uri = "file:///home/mjpc13/.config/wallpapers/nix-nineish-light.png";
+        # picture-uri-dark = "file:///home/mjpc13/.config/wallpapers/nix-nineish-dark.png";
         primary-color = "#3a4ba0";
         secondary-color = "#2f302f";
       };
