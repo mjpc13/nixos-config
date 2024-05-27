@@ -8,8 +8,8 @@
 {
   home.packages = with pkgs; [
 
-    blender
-    davinci-resolve
+    #blender
+    #davinci-resolve
     cura
 
 #aseprite
