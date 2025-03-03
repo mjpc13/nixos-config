@@ -15,7 +15,7 @@ return {
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.nix" },
   { import = "astrocommunity.pack.python" },
-  { import = "astrocommunity.pack.rust" },
+  -- { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.markdown-and-latex.vimtex" },
   { import = "astrocommunity.remote-development.distant-nvim" },

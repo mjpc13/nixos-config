@@ -23,6 +23,11 @@ return {
     event = "VeryLazy",
   },
   {
+    'mrcjkb/rustaceanvim',
+    version = '^4', -- Recommended
+    ft = { 'rust' },
+  },
+  {
     --To leap between keywords
     "ggandor/leap.nvim",
     opts = {},
@@ -91,6 +96,5 @@ return {
       }
     end,
  },
-
 
 }
