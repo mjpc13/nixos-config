@@ -28,11 +28,13 @@
     };
 
   #Wallpapers
-  dconf.settings."org/gnome/desktop/background".picture-uri = lib.mkForce "file:///home/mjpc13/.config/wallpapers/thinkpad.jpg";
-  dconf.settings."org/gnome/desktop/background".picture-uri-dark = lib.mkForce "file:///home/mjpc13/.config/wallpapers/thinkpad.jpg";
+  # dconf.settings."org/gnome/desktop/background".picture-uri = lib.mkForce "file:///home/mjpc13/.config/wallpapers/thinkpad.jpg";
+  # dconf.settings."org/gnome/desktop/background".picture-uri-dark = lib.mkForce "file:///home/mjpc13/.config/wallpapers/thinkpad.jpg";
 
   # screensaver
-  dconf.settings."org/gnome/desktop/screensaver".picture-uri = lib.mkForce "file:///home/mjpc13/.config/wallpapers/thinkpad.jpg";
+  # dconf.settings."org/gnome/desktop/screensaver".picture-uri = lib.mkForce "file:///home/mjpc13/.config/wallpapers/thinkpad.jpg";
+  gnome.wallpaper-dark = lib.mkDefault "file:///home/mjpc13/.config/wallpapers/thinkpad.jpg";
+  gnome.wallpaper = lib.mkDefault "file:///home/mjpc13/.config/wallpapers/thinkpad.jpg";
 
 
   # Let Home Manager install and manage itself.

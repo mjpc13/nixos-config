@@ -27,15 +27,20 @@
       # changes in each release.
       stateVersion = "22.11";
     };
-  
-  #Wallpapers
-  #dconf.settings."org/gnome/desktop/background".picture-uri = lib.mkForce "file:///home/mjpc13/.config/wallpapers/itsv.jpg";
-  #dconf.settings."org/gnome/desktop/background".picture-uri-dark = lib.mkForce "file:///home/mjpc13/.config/wallpapers/itsv.jpg";
 
-  # screensaver
-  # dconf.settings."org/gnome/desktop/screensaver".picture-uri = lib.mkForce "file:///home/mjpc13/.config/wallpapers/nix-dracula.png";
+  gnome.wallpaper-dark = lib.mkDefault "file:///home/mjpc13/.config/wallpapers/spooky_spil.jpg";
+
+  gnome.favorite-apps = [
+    "firefox.desktop"
+    "slack.desktop"
+    "org.gnome.Nautilus.desktop"
+    "com.github.xournalpp.xournalpp.desktop"
+  ];
+
+
 
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
+

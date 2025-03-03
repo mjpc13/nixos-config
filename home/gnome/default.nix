@@ -3,18 +3,36 @@
 {
 
   options.gnome = {
-    test = lib.mkOption {
-      type = lib.types.int;
-      default = 2;
+    just-perfection = {
+      clock-position = lib.mkOption {
+        type = lib.types.int;
+        default = 1;
+      };
     };
 
     wallpaper = lib.mkOption {
       type = lib.types.str;
       default = "file:///home/mjpc13/.config/wallpapers/itsv.jpg";
     };
+
     wallpaper-dark = lib.mkOption {
       type = lib.types.str;
-      default = "file:///home/mjpc13/.config/wallpapers/the-great-wave.jpg.jpg";
+      default = "file:///home/mjpc13/.config/wallpapers/the-great-wave.jpg";
+    };
+
+    screensaver = lib.mkOption {
+      type = lib.types.str;
+      default = "file:///home/mjpc13/.config/wallpapers/the-great-wave.jpg";
+    };
+
+    favorite-apps = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [
+        "firefox.desktop"
+        "kitty.desktop"
+        "slack.desktop"
+        "org.gnome.Nautilus.desktop"
+      ];
     };
 
   };
@@ -43,7 +61,6 @@
 
       cursorTheme = {
         name = "Catppuccin-Frappe-Rosewater-Cursors";
-        # package = pkgs.numix-cursor-theme;
         package = pkgs.catppuccin-cursors.frappeRosewater;
       };
 
@@ -69,8 +86,6 @@
     # Config options
     home.file.".config/wallpapers".source = ../wallpapers;
 
-
-
     home.file.".config/nvim" = {
       source = ../base/programs/nvim;
       recursive = true;
@@ -82,38 +97,24 @@
       # $ dconf watch /
       # Then go to preferences and edit the different settings
 
-      "org/gnome/desktop/background" = {
-        picture-uri = config.gnome.wallpaper;
-        picture-uri-dark = config.gnome.wallpaper-dark;
-      };
-
-
       "org/gnome/shell" = {
 
         disable-user-extensions = false;
 
         #For gnome extensions
         enabled-extensions = [
-
           "caffeine@patapon.info"
           "arcmenu@arcmenu.com"
           "mediacontrols@cliffniff.github.com"
-          "space-bar@luchrioh"
           "tactile@lundal.io"
           "just-perfection-desktop@just-perfection"
           "blur-my-shell@aunetx"
         ];
 
 
-        favorite-apps = [
-          "firefox.desktop"
-          "kitty.desktop"
-          "slack.desktop"
-          "org.gnome.Nautilus.desktop"
-        ];
+        favorite-apps = config.gnome.favorite-apps;
       };
 
-      # "/org/gnome/shell/extensions/arcmenu".arc-menu-icon = "63";
       "org/gnome/shell/extensions/mediacontrols" = {
         label-width = 0;
         show-control-icons-seek-forward = false;
@@ -122,7 +123,7 @@
       };
       "org/gnome/shell/extensions/just-perfection" = {
         keyboard-layout = false;
-        clock-menu-position = config.gnome.test;
+        clock-menu-position = config.gnome.just-perfection.clock-position;
       };
 
       "org/gnome/desktop/interface" = {
@@ -130,14 +131,12 @@
         enable-hot-corners = false;
       };
       "org/gnome/mutter".edge-tiling = true;
-      "org/gnome/desktop/wm/preferences" = {
-        workspace-names = [ "Main" ];
-      };
+
       "org/gnome/desktop/background" = {
         color-shading-type = "solid";
         picture-options = "zoom";
-        # picture-uri = "file:///home/mjpc13/.config/wallpapers/nix-nineish-light.png";
-        # picture-uri-dark = "file:///home/mjpc13/.config/wallpapers/nix-nineish-dark.png";
+        picture-uri = config.gnome.wallpaper;
+        picture-uri-dark = config.gnome.wallpaper-dark;
         primary-color = "#3a4ba0";
         secondary-color = "#2f302f";
       };
@@ -145,7 +144,7 @@
       "org/gnome/desktop/screensaver" = {
         color-shading-type = "solid";
         picture-options = "zoom";
-        picture-uri = "file:///home/mjpc13/.config/wallpapers/nix-dracula.png";
+        picture-uri = config.gnome.screensaver;
         primary-color = "#3a4ba0";
         secondary-color = "#2f302f";
       };
@@ -170,8 +169,6 @@
       gnomeExtensions.arcmenu
       gnomeExtensions.just-perfection
       # gnomeExtensions.floating-dock
-
-
 
       neovide
     ];
