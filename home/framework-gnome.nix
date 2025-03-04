@@ -1,15 +1,8 @@
-{ lib, config, ... }:
+{ lib, ... }:
 
 {
   imports = [
-    # ../base/desktop
-
     ./base
-    ./extra/game.nix
-    ./extra/artistic.nix
-    # ./fcitx5
-    # ./desktop
-
     ./gnome
   ];
 
@@ -23,7 +16,6 @@
       username = "${name}";
       homeDirectory = lib.mkForce "/home/${name}";
 
-
       # This value determines the Home Manager release that your
       # configuration is compatible with. This helps avoid breakage
       # when a new Home Manager release introduces backwards
@@ -35,11 +27,8 @@
       stateVersion = "22.11";
     };
 
-  #Wallpapers
-  gnome.wallpaper-dark = lib.mkDefault "file:///home/mjpc13/.config/wallpapers/mars.jpg";
-  gnome.wallpaper = lib.mkDefault "file:///home/mjpc13/.config/wallpapers/mars.jpg";
-
-
+  gnome.wallpaper-dark = lib.mkDefault "file:///home/mjpc13/.config/wallpapers/Wallpaper.jpeg";
+  gnome.wallpaper = lib.mkDefault "file:///home/mjpc13/.config/wallpapers/blogpaper32.jpg";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

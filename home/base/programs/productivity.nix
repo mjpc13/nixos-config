@@ -13,7 +13,7 @@
     spotify
 
     gimp
-    okular #PDF viewer
+    kdePackages.okular #PDF viewer
     libreoffice-qt #Office Suite
     vlc #video
 

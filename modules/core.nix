@@ -28,7 +28,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = lib.mkDefault true;
 
-  nixpkgs.config.permittedInsecurePackages = [ "qtwebkit-5.212.0-alpha4" ];
+  #nixpkgs.config.permittedInsecurePackages = [ "qtwebkit-5.212.0-alpha4" ];
   # Set your time zone.
   time.timeZone = "Europe/Lisbon";
 
@@ -67,18 +67,18 @@
 
 
     # python, some times I may need to use python with root permission.
-    (python310.withPackages (ps: with ps; [
-      ipython
-      pandas
-      pyyaml
-      numpy
-      requests
-    ]))
+#    (python310.withPackages (ps: with ps; [
+#      ipython
+#      pandas
+#      pyyaml
+#      numpy
+#      requests
+#    ]))
 
     # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!
     (
       let base = pkgs.appimageTools.defaultFhsEnvArgs; in
-      pkgs.buildFHSUserEnv (base // {
+      pkgs.buildFHSEnv (base // {
         name = "fhs";
         targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [ pkgs.pkg-config ];
         profile = "export FHS=1";
@@ -125,7 +125,7 @@
       font-awesome
 
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       # noto-fonts-emoji
       noto-fonts-extra
 
@@ -134,14 +134,9 @@
       source-han-sans
       source-han-serif
 
-      # nerdfonts
-      (nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "JetBrainsMono"
-          "Iosevka"
-        ];
-      })
+      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.iosevka
 
       # (pkgs.callPackage ../../fonts/icomoon-feather-icon-font.nix { })
     ];
@@ -196,10 +191,8 @@
   };
   # rtkit is optional but recommended
   security.rtkit.enable = true;
-  # Remove sound.enable or turn it off if you had it set previously, it seems to cause conflicts with pipewire
-  sound.enable = false;
   # Disable pulseaudio, it conflicts with pipewire too.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   # enable bluetooth & gui paring tools - blueman
   hardware.bluetooth.enable = true;
@@ -235,7 +228,7 @@
     # geoclue2.enable = true;
 
     udev.packages = with pkgs; [
-      gnome.gnome-settings-daemon
+      pkgs.gnome-settings-daemon
       # android-udev-rules
     ];
   };

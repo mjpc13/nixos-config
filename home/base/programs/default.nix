@@ -1,7 +1,7 @@
 {
   imports = [
     ./development.nix
-    ./kitty.nix
+    #./kitty.nix
     ./productivity.nix
   ];
 }

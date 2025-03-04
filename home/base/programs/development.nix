@@ -32,13 +32,14 @@
       pygobject3
     ]))
 
-    gcc
     gdb
     rustup
     go
     nodejs
     julia
     #latex
+
+    surrealdb
 
     zotero
     texlive.combined.scheme-full

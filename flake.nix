@@ -157,17 +157,16 @@
           }
         ];
       };
-      "mjpc13-fw-nix" = nixpkgs.lib.nixosSystem {
+      "mjpc13-framework" = nixpkgs.lib.nixosSystem {
 	
-	system = "x86_64-linux";
-
+	      system = "x86_64-linux";
         modules = [
 
           ./hosts/framework
           ./modules/gnome.nix
 
           inputs.nix-index-database.nixosModules.nix-index
-          inputs.nix-ros-overlay.nixosModules.default
+          #inputs.nix-ros-overlay.nixosModules.default
 
           home-manager.nixosModules.home-manager
           {
