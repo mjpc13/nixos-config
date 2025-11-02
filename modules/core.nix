@@ -40,6 +40,12 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = lib.mkDefault false;
 
+  networking.useNetworkd = true;
+  networking.useDHCP = false;
+
+  networking.interfaces.wlp1s0.useDHCP = true;
+  networking.interfaces.eth0.useDHCP = true;
+
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
@@ -161,7 +167,7 @@
   };
 
   # Start SSH Agent
-  programs.ssh.startAgent = true;
+  programs.ssh.startAgent = false; #Gnome starts it
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -254,7 +260,6 @@
   environment.shells = with pkgs; [
     bash
     zsh
-    # nushell
   ];
   # set user's default shell system-wide
   users.defaultUserShell = pkgs.bash;

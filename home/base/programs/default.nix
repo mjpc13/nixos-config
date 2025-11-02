@@ -1,7 +1,7 @@
 {
   imports = [
     ./development.nix
-    #./kitty.nix
+    ./nvim.nix
     ./productivity.nix
   ];
 }

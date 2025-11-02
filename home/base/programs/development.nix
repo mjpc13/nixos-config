@@ -19,10 +19,14 @@
     sshfs
     zip
     unzip
-    kitty
+    ghostty
+    tmux
     fzf
     ripgrep
     tldr
+    sshfs # Mount remote folders
+
+    goose-cli #AI agent for coding
 
     # Languages
     (python311.withPackages (ps: with ps; [
@@ -30,20 +34,22 @@
       pandas
       numpy
       pygobject3
+      tkinter
     ]))
-
+    
+    clang
     gdb
-    rustup
+    #rustup
     go
     nodejs
     julia
     #latex
 
+    vscode
     surrealdb
 
     zotero
     texlive.combined.scheme-full
-
   ];
 
   programs = {
@@ -81,22 +87,10 @@
       };
     };
 
-    kitty = {
+    vscode = {
       enable = true;
-      theme = "Catppuccin-Macchiato";
-      font = {
-        name = "FiraCode Font";
-        # use different font size on macOS
-        size = 14;
-      };
-
-      settings = {
-        background_opacity = "0.95";
-        scrollback_lines = 10000;
-        enable_audio_bell = false;
-      };
-
     };
 
   };
+
 }

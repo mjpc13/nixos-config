@@ -66,10 +66,10 @@
         };
       };
 
-      cursorTheme = {
-        name = "Catppuccin-Frappe-Rosewater-Cursors";
-        package = pkgs.catppuccin-cursors.frappeRosewater;
-      };
+      # cursorTheme = {
+      #   name = "Catppuccin-Frappe-Rosewater-Cursors";
+      #   package = pkgs.catppuccin-cursors.frappeRosewater;
+      # };
 
       gtk3.extraConfig = {
         Settings = ''
@@ -93,10 +93,10 @@
     # Config options
     home.file.".config/wallpapers".source = ../wallpapers;
 
-    home.file.".config/nvim" = {
-      source = ../base/programs/nvim;
-      recursive = true;
-    };
+    # home.file.".config/nvim" = {
+    #   source = ../base/programs/nvim;
+    #   recursive = true;
+    # };
 
     # DCONF Settings
     dconf.settings = {
@@ -160,9 +160,6 @@
     };
 
     home.packages = with pkgs; [
-      # ...
-      # gnomeExtensions.user-themes
-      # gnomeExtensions.vitals
       gnomeExtensions.dash-to-panel
       gnomeExtensions.space-bar
       gnomeExtensions.tactile
@@ -172,10 +169,7 @@
       gnomeExtensions.media-controls
       gnomeExtensions.caffeine
 
-      # gnomeExtensions.easyscreencast
-      gnomeExtensions.arcmenu
       gnomeExtensions.just-perfection
-      # gnomeExtensions.floating-dock
 
       neovide
     ];

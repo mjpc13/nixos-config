@@ -2,6 +2,7 @@
 
 {
   imports = [
+    nixvim.homeManagerModules.nixvim
     ./base
     ./gnome
   ];
@@ -39,4 +40,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  systemd.user.startServices = true;
 }
